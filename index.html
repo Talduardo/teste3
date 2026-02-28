@@ -766,62 +766,58 @@
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
-/* ── MOBILE E MEDIA QUERIES (REVISADO: FONTES MENORES E MAIOR ESPAÇO) ── */
+
+/* ── MOBILE E MEDIA QUERIES ── */
 @media (max-width: 768px) {
-  /* Aumenta o respiro vertical da seção */
-  section { padding: 90px 6% 60px; }
-  
-  nav { padding: 0 6%; z-index: 1000; }
+  section { padding: 70px 6%; }
+  nav { padding: 0 6%; z-index: 1000; } 
   .nav-links { display: none; }
   .hamburger { display: flex !important; }
+  
+  /* Reduz a fonte do nome para equilibrar */
+  .hero-name { font-size: 2.2rem; }
 
-  /* Diminuindo a fonte do nome */
-  .hero-name { 
-    font-size: 2.2rem; 
-    line-height: 1.1; 
-    margin-bottom: 25px;
-  }
-
-  /* Ajustando o container de estatísticas */
+  /* ── CARDS COLADOS NA DIREITA E ADAPTÁVEIS ── */
   .hero-stats { 
-    position: relative; 
-    z-index: 10001; /* Garante que fique à frente de tudo */
-    display: flex;
-    flex-direction: column; /* Um abaixo do outro para focar no espaçamento vertical */
-    align-items: center;    /* Centraliza os cards */
-    gap: 20px;              /* Aumenta o espaçamento vertical entre os cards */
-    margin-top: 65px;       /* Aumenta o espaço entre o nome e os cards */
-    transform: none;
+    position: absolute; /* Ignora o padding da seção */
+    right: 5px;         /* BEM PERTO da borda (diminua para 0 se quiser 100% colado) */
+    top: 70%;           /* Posiciona mais para a parte de baixo da tela */
+    transform: translateY(-50%);
+    display: flex; 
+    flex-direction: column; /* Um abaixo do outro */
+    align-items: flex-end;
+    gap: 15px;          /* Espaçamento vertical entre eles */
+    z-index: 10001;     /* Garante que fiquem na frente de tudo */
   }
 
-  /* Diminuindo o tamanho dos cards e fontes internas */
-  .stat-card { 
-    padding: 10px 18px; 
-    min-width: 110px;
-    max-width: 140px;
-    background: rgba(13, 20, 33, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+  .stat-card {
+    padding: 10px 14px;
+    min-width: 90px;
+    width: fit-content;
+    background: rgba(13, 20, 33, 0.85); /* Fundo um pouco mais sólido para leitura */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(201, 168, 76, 0.2);
-    border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    border-right: 3px solid var(--gold); /* Linha de destaque encostada na tela */
+    border-radius: 8px 0 0 8px; /* Arredonda só na esquerda, deixando a direita reta */
   }
 
+  /* Fontes bem menores */
   .stat-num { 
-    font-size: 1.1rem; /* Fonte do número menor */
-    font-weight: 700;
+    font-size: 1.2rem; 
     color: var(--gold);
-    display: block;
+    font-weight: 700;
+    line-height: 1;
   }
 
   .stat-label { 
-    font-size: 0.5rem; /* Fonte do texto menor */
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-size: 0.55rem; 
     color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     margin-top: 4px;
   }
-
+  
   /* Garante que o botão apareça no mobile */
 
   .hamburger { display: flex !important; }
